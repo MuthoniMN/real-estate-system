@@ -11,7 +11,7 @@ export default function Signin() {
                     <label htmlFor="password">Password: </label>
                     <input type="tpassword" id="password" placeholder="e.g., Secure123!!" className="w-full mt-2 p-2 border-2 border-theme-color" />
                 </div>
-                <input type="submit" value={"Log In"} className="bg-theme-color py-2 px-4 block mx-auto my-6" />
+                <input type="submit" value={"Log In"} className="bg-theme-color py-2 px-4 block mx-auto my-6 transition-all hover:rounded-2xl" />
             </form>
         </section>
     )

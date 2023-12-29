@@ -35,7 +35,7 @@ export default function Add() {
                     <label htmlFor="bedrooms">Number of Bedrooms: </label>
                     <input type="number" id="bedrooms" placeholder="e.g. 1" className="w-full mt-2 p-2 border-2 border-theme-color" />
                 </div>
-                <input type="submit" value={"Add Property"} className="bg-theme-color py-2 px-4 block mx-auto my-6" />
+                <input type="submit" value={"Add Property"} className="bg-theme-color py-2 px-4 block mx-auto my-6 transition-all hover:rounded-2xl" />
             </form>
         </section>
     )
