@@ -1,8 +1,8 @@
 export default function Add() {
     return (
-        <section className="p-4">
+        <section className="p-6">
             <h1 className="text-3xl text-theme-color font-bold text-center">Add a Property</h1>
-            <p className="md:w-1/3 mx-auto my-2 italic">You can add a listing here but it will be added to our properties once we have verified it.</p>
+            <p className="md:w-1/3 mx-auto my-4 italic text-center">You can add a listing here but it will be added to our properties once we have verified it.</p>
             <form className="md:w-1/3 mx-auto my-4">
                 <div className="my-2">
                     <label htmlFor="title">Property Title: </label>
