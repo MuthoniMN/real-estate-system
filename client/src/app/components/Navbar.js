@@ -24,7 +24,7 @@ export default function Navbar() {
                     <Link href={"/signin"} className="hover:font-bold">Sign In</Link>
                 </li>
             </ul>
-            <button className="bg-theme-color py-2 px-4">Add a Listing</button>
+            <Link href={"/properties/add"} className="bg-theme-color py-2 px-4">Add a Listing</Link>
         </nav>
     )
 }
