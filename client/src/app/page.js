@@ -16,8 +16,8 @@ export default function Home() {
       <section className="p-4">
         <h2 className="text-theme-color font-bold text-3xl text-center">Services We Offer: </h2>
         <section className="flex justify-center gap-6 py-4">
-          <Card img={"/buy.svg"} title={"Buy Properties"} desc={"Get access to quality vetted properties to buy at the best prices"} link="/properties/buy" btnText={"Buy a Property"} />
-          <Card img={"/sell.svg"} title={"Sell Your Properties"} desc={"Sell your properties at the best prices to our clients"} link="/properties/sell" btnText={"Sell a Property"} />
+          <Card img={"/buy.svg"} title={"Buy Properties"} desc={"Get access to quality vetted properties to buy at the best prices"} link="/properties/sale" btnText={"Buy a Property"} />
+          <Card img={"/sell.svg"} title={"Sell Your Properties"} desc={"Sell your properties at the best prices to our clients"} link="/properties/add" btnText={"Sell a Property"} />
           <Card img={"/rent.svg"} title={"Rent a Property"} desc={"Get access to quality vetted properties to rent at the best prices"} link="/properties/rent" btnText={"Rent a Property"} />
         </section>
       </section>
