@@ -1,3 +1,4 @@
+import PropertySection from "@/app/components/PropertySection";
 import SearchBar from "../../components/SearchBar";
 
 export default function Sale() {
@@ -8,7 +9,7 @@ export default function Sale() {
                 <p>Find a property that is on sale</p>
             </section>
             <SearchBar />
-
+            <PropertySection />
         </main>
     )
 }
