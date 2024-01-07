@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react"
 
 export default function Add() {
@@ -9,8 +10,21 @@ export default function Add() {
         bathrooms: 0,
         bedrooms: 0
     });
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch("/api/property/new", {
+                method: "POST",
+                body: JSON.stringify({
+                    userID: session?.user.id,
+                    ...post
+                })
+            })
+            const data = response.json()
+            return data
+        } catch (error) {
+            console.error(error)
+        }
     }
     return (
         <section className="p-6">
