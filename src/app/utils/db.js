@@ -4,7 +4,7 @@ let isConnected = false;
 
 const uri = process.env.MONGODB_URI
 
-const connectToDB = async () => {
+export const connectToDB = async () => {
     mongoose.set('strictQuery', true)
 
     if (isConnected) {
