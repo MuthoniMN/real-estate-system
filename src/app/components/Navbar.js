@@ -44,7 +44,7 @@ export default function Navbar() {
             </ul>
             {isUserSignedIn && <Link href={"/properties/add"} className="bg-theme-color py-2 px-4 transition-all hover:rounded-2xl sm:block hidden">Add a Listing</Link>}
             <FontAwesomeIcon icon={faBars} style={{ color: "#E8AE00", fontSize: "32px" }} className="md:hidden" onClick={() => setToggleDropdown((prev) => !prev)} />
-            {toggleDropdown && <div className="absolute top-20 left-0 right-0 h-full bg-white p-5">
+            {toggleDropdown && <div className="absolute top-20 left-0 right-0 h-full bg-white p-5 md:hidden">
                 <ul className="flex gap-4 items-center justify-center flex-col">
                     <li>
                         <Link href={"/"} className="font-bold">Home</Link>
