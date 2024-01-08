@@ -1,3 +1,6 @@
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function Signin() {
     return (
         <section className="p-6">
@@ -13,6 +16,7 @@ export default function Signin() {
                 </div>
                 <input type="submit" value={"Log In"} className="bg-theme-color py-2 px-4 block mx-auto my-6 transition-all hover:rounded-2xl" />
             </form>
+            <button className="bg-theme-color py-2 px-4 block mx-auto my-6 transition-all hover:rounded-2xl"><FontAwesomeIcon icon={faGoogle} className="me-4" />Continue with Google</button>
         </section>
     )
 }

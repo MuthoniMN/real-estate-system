@@ -8,17 +8,8 @@ import { faBars } from "@fortawesome/free-solid-svg-icons"
 
 export default function Navbar() {
     const isUserSignedIn = true;
-    const [providers, setProviders] = useState(null);
     const [toggleDropdown, setToggleDropdown] = useState(false)
 
-    useEffect(() => {
-        const getAndSetProviders = async () => {
-            const res = await getProviders()
-
-            setProviders(res)
-        }
-        getAndSetProviders();
-    }, [])
     return (
         <nav className="flex py-4 px-8 justify-between items-center">
             <Link href={"/"}>
@@ -38,7 +29,7 @@ export default function Navbar() {
                     <Link href={"/properties/rent"} className="hover:font-bold">For Rent</Link>
                 </li>
                 <li>
-                    {!isUserSignedIn && <Link href={"/signin"} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Sign In</Link>}
+                    {!isUserSignedIn && <button onClick={() => signIn()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Sign In</button>}
                     {isUserSignedIn && <button onClick={() => signOut()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Log Out</button>}
                 </li>
             </ul>
