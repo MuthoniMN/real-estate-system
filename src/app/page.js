@@ -1,6 +1,6 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Card from "./components/Card"
+import Card from "./_components/Card"
 export default function Home() {
   return (
     <main>

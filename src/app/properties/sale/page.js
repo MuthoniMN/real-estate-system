@@ -1,4 +1,4 @@
-import SearchBar from "../../components/SearchBar";
+import SearchBar from "../../_components/SearchBar";
 
 export default function Sale() {
     return (
