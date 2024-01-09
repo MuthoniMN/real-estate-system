@@ -1,3 +1,4 @@
+import Button from "@/app/_components/Button";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -14,9 +15,12 @@ export default function Signin() {
                     <label htmlFor="password">Password: </label>
                     <input type="tpassword" id="password" placeholder="e.g., Secure123!!" className="w-full mt-2 p-2 border-2 border-theme-color" />
                 </div>
-                <input type="submit" value={"Log In"} className="bg-theme-color py-2 px-4 block mx-auto my-6 transition-all hover:rounded-2xl" />
+                <Button type={"submit"}>Log In</Button>
             </form>
-            <button className="bg-theme-color py-2 px-4 block mx-auto my-6 transition-all hover:rounded-2xl"><FontAwesomeIcon icon={faGoogle} className="me-4" />Continue with Google</button>
+            <Button type={"submit"}>
+                <FontAwesomeIcon icon={faGoogle} className="me-4" style={{ fontSize: "12px", height: "16px", display: "inline" }} />
+                <p>Continue with Google</p>
+            </Button>
         </section>
     )
 }
