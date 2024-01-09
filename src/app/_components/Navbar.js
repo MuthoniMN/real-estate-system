@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import Button from "./Button"
+import Logo from "./Logo"
 
 export default function Navbar() {
     const isUserSignedIn = true;
@@ -13,12 +14,7 @@ export default function Navbar() {
 
     return (
         <nav className="flex py-4 px-8 justify-between items-center">
-            <Link href={"/"}>
-                <div className="flex items-center gap-2">
-                    <Image src="/Nyumbani-Real-Estate.png" alt="Nyumbani Real Estate" width={56} height={56} className="rounded" />
-                    <span className="font-bold">Nyumbani<br />Real Estate</span>
-                </div>
-            </Link>
+            <Logo />
             <ul className="sm:flex gap-4 items-center hidden">
                 <li>
                     <Link href={"/"} className="font-bold">Home</Link>
