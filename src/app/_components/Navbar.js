@@ -5,6 +5,7 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
+import Button from "./Button"
 
 export default function Navbar() {
     const isUserSignedIn = true;
@@ -29,8 +30,8 @@ export default function Navbar() {
                     <Link href={"/properties/rent"} className="hover:font-bold">For Rent</Link>
                 </li>
                 <li>
-                    {!isUserSignedIn && <button onClick={() => signIn()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Sign In</button>}
-                    {isUserSignedIn && <button onClick={() => signOut()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Log Out</button>}
+                    {!isUserSignedIn && <Button type={"button"} onClick={() => signIn()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Sign In</Button>}
+                    {isUserSignedIn && <Button type={"button"} onClick={() => signOut()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Log Out</Button>}
                 </li>
             </ul>
             {isUserSignedIn && <Link href={"/properties/add"} className="bg-theme-color py-2 px-4 transition-all hover:rounded-2xl sm:block hidden">Add a Listing</Link>}
