@@ -23,12 +23,12 @@ const links = [
         icon: faHouseChimneyUser
     },
     {
-        link: "/admin/property/agents",
+        link: "/admin/agents",
         desc: "Agents",
         icon: faUser
     },
     {
-        link: "/admin/property/accounts",
+        link: "/admin/accounts",
         desc: "Add Admin Account",
         icon: faUserPlus
     },
