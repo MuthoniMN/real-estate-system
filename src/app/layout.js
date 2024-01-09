@@ -1,10 +1,9 @@
-import { Inter } from 'next/font/google'
+import { Quicksand } from 'next/font/google'
 import './globals.css'
-import Navbar from './_components/Navbar'
 import Footer from './_components/Footer'
 import Provider from './_components/Provider'
 
-const inter = Inter({ subsets: ['latin'] })
+const quicksand = Quicksand({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Nyumbani Real Estate',
@@ -14,9 +13,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={quicksand.className}>
         <Provider>
-          <Navbar />
           {children}
           <Footer />
         </Provider>
