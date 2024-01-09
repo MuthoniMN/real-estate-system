@@ -1,6 +1,5 @@
 import IconLink from "./IconLink";
 import Logo from "./Logo";
-import { faHouseChimneyUser, faHouseCircleCheck, faHouseCircleExclamation, faUser, faUserEdit, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function Sidebar({ content }) {
     return (
