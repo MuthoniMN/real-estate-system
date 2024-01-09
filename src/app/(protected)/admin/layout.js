@@ -9,7 +9,9 @@ export default function AdminLayout({ children }) {
     return (
         <main className="flex gap-4" style={{ height: "100vh" }}>
             <Sidebar />
-            {children}
+            <section className="clear ms-[32%] lg:ms-[20%]">
+                {children}
+            </section>
         </main>
     )
 }
