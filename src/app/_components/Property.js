@@ -2,6 +2,7 @@ import { faBath, faBed } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "next/image"
 import Link from "next/link"
+import Button from "./Button"
 
 export default function Property({ img, title, location, price, beds, baths, id }) {
     return (
@@ -17,7 +18,7 @@ export default function Property({ img, title, location, price, beds, baths, id 
                 <p className="flex gap-2 h-[18px]"><FontAwesomeIcon icon={faBath} style={{ fontSize: "8px" }} />{baths}</p>
             </div>
             <Button type={"button"}>
-                <Link href={"/properties/" + id} className="block w-fit my-4 mx-auto bg-theme-color py-2 px-4 transition-all hover:underline hover:font-bold">View Property</Link>
+                <Link href={"/properties/" + id}>View Property</Link>
             </Button>
         </div>
     )
