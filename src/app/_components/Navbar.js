@@ -34,7 +34,7 @@ export default function Navbar() {
                     {isUserSignedIn && <Button type={"button"} onClick={() => signOut()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Log Out</Button>}
                 </li>
             </ul>
-            {isUserSignedIn && <Link href={"/properties/add"} className="bg-theme-color py-2 px-4 transition-all hover:rounded-2xl sm:block hidden">Add a Listing</Link>}
+            {isUserSignedIn && <Link href={"/properties/add"} className="bg-theme-color hover:bg-theme-color/85 py-2 px-4 transition-all hover:rounded-2xl sm:block hidden">Add a Listing</Link>}
             <FontAwesomeIcon icon={faBars} style={{ color: "#E8AE00", fontSize: "32px" }} className="md:hidden" onClick={() => setToggleDropdown((prev) => !prev)} />
             {toggleDropdown && <div className="absolute top-20 left-0 right-0 h-full bg-white p-5 md:hidden">
                 <ul className="flex gap-4 items-center justify-center flex-col">

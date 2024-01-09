@@ -31,7 +31,7 @@ export default function SearchBar() {
                 <option>Bungalow</option>
                 <option>Mansion</option>
             </select>
-            <input type="submit" value={"Search"} className="bg-theme-color py-2 px-4 transition-all hover:rounded-2xl" />
+            <input type="submit" value={"Search"} className="bg-theme-color hover:bg-theme-color/85 py-2 px-4 transition-all hover:rounded-2xl" />
         </form>
     )
 }
