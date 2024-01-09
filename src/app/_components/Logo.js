@@ -6,7 +6,7 @@ export default function Logo() {
         <Link href={"/"}>
             <div className="flex items-center gap-2">
                 <Image src="/Nyumbani-Real-Estate.png" alt="Nyumbani Real Estate" width={56} height={56} className="rounded" />
-                <span className="font-bold">Nyumbani<br />Real Estate</span>
+                <span className="font-bold hidden md:block">Nyumbani<br />Real Estate</span>
             </div>
         </Link>
     )
