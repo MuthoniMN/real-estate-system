@@ -1,5 +1,5 @@
-import PropertySection from "@/app/_components/PropertySection";
-import SearchBar from "../../_components/SearchBar";
+import PropertySection from "../../../_components/PropertySection";
+import SearchBar from "../../../_components/SearchBar";
 
 export default function Sale() {
     return (
