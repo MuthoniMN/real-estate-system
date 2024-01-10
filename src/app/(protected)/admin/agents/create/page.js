@@ -4,6 +4,16 @@ import { faCheckCircle, faExclamationTriangle } from "@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 
+async function getUser(email) {
+    const data = await fetch(`http://localhost:3000/api/accounts?email=${email}`)
+
+    if (!data.ok) {
+        throw new Error('Failed to fetch data')
+    }
+
+    return data.json()
+}
+
 export default function CreateAgent() {
     const [details, setDetails] = useState({
         email: "",
@@ -18,24 +28,31 @@ export default function CreateAgent() {
             setErr("Please fill all the fields")
             return;
         }
-        try {
-            const response = await fetch("/api/auth/register", {
-                method: "POST",
-                body: JSON.stringify({
-                    ...details,
-                    role: "agent"
+        let user = getUser(details.email)
+
+        if (user.total !== 0) {
+            setErr("Email already exists!")
+            return;
+        } else {
+            try {
+                const response = await fetch("/api/auth/register", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        ...details,
+                        role: "agent"
+                    })
                 })
-            })
-            if (response.status === 201) {
-                setErr("")
-                setSuccess("Agent Account Created!")
-            } else if (response.status === 500) {
-                setSuccess("")
-                setErr("Oops! Agent Account Not Created!")
+                if (response.status === 201) {
+                    setErr("")
+                    setSuccess("Agent Account Created!")
+                } else if (response.status === 500) {
+                    setSuccess("")
+                    setErr("Oops! Agent Account Not Created!")
+                }
+                return response
+            } catch (error) {
+                console.error(error)
             }
-            return response
-        } catch (error) {
-            console.error(error)
         }
     }
     return (
