@@ -16,6 +16,9 @@ export default async function Agents() {
     return (
         <section className="p-4">
             <h2 className="text-3xl font-bold">Our Agents</h2>
+            <Button type={"button"}>
+                <Link href={"/admin/agents/create"} className="text-white">Create a New Agent Account</Link>
+            </Button>
             <section className="flex flex-wrap gap-4 my-4">
                 {res && res.results.map(a => (
                     <CardContainer key={a._id}>
