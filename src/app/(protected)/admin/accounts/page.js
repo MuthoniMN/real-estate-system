@@ -3,16 +3,7 @@ import CardContainer from "@/app/_components/CardContainer";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-
-async function getAllAdmins() {
-    const data = await fetch("http://localhost:3000/api/accounts?role=admin")
-
-    if (!data.ok) {
-        throw new Error('Failed to fetch data')
-    }
-
-    return data.json()
-}
+import getAllAdmins from "@/app/lib/getAllAdmins";
 
 export default async function Admins() {
     const res = await getAllAdmins()

@@ -3,16 +3,7 @@ import Button from "@/app/_components/Button";
 import CardContainer from "@/app/_components/CardContainer";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-async function getAllAgents() {
-    const data = await fetch("http://localhost:3000/api/accounts?role=agent")
-
-    if (!data.ok) {
-        throw new Error('Failed to fetch data')
-    }
-
-    return data.json()
-}
+import getAllAgents from "@/app/lib/getAllAgents";
 
 export default async function Agents() {
     const res = await getAllAgents()
