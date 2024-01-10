@@ -8,7 +8,7 @@ export const connectToDB = async () => {
     mongoose.set('strictQuery', true)
 
     if (isConnected) {
-        console.log(`Connected at: ${mongoose.connection}`)
+        console.log(`Connected`)
         return;
     }
 
@@ -17,7 +17,7 @@ export const connectToDB = async () => {
             dbName: "nyumbani_system"
         })
         isConnected = true;
-        console.log(`Connected at: ${mongoose.connection}`)
+        console.log(`Connected`)
     } catch (err) {
         console.error(err)
     }
