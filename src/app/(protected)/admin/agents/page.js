@@ -1,7 +1,7 @@
 import CardContainer from "@/app/_components/CardContainer";
 
 async function getAllAgents() {
-    const data = await fetch("http://localhost:3000/api/accounts/all?role=agent")
+    const data = await fetch("http://localhost:3000/api/accounts?role=agent")
 
     if (!data.ok) {
         throw new Error('Failed to fetch data')
