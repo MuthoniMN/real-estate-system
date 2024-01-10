@@ -1,4 +1,8 @@
+import Link from "next/link";
+import Button from "@/app/_components/Button";
 import CardContainer from "@/app/_components/CardContainer";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 async function getAllAgents() {
     const data = await fetch("http://localhost:3000/api/accounts?role=agent")
@@ -26,6 +30,10 @@ export default async function Agents() {
                         <p className="my-2">{a.email}</p>
                         <p className="my-2">Managing 0 rental properties</p>
                         <p className="my-2">Sold: 0 properties</p>
+                        <div className="flex justify-between items-center">
+                            <Button type={"button"}>Edit <FontAwesomeIcon icon={faEdit} style={{ marginLeft: "12px", height: "16px" }} /></Button>
+                            <button className="bg-red-600 text-white font-bold py-2 px-4 hover:bg-red-300 hover:text-red-600 flex items-center">Delete <FontAwesomeIcon icon={faTrash} style={{ marginLeft: "12px", height: "16px" }} /></button>
+                        </div>
                     </CardContainer>
                 ))}
             </section>

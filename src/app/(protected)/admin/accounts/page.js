@@ -1,5 +1,7 @@
 import Button from "@/app/_components/Button";
 import CardContainer from "@/app/_components/CardContainer";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
 async function getAllAdmins() {
@@ -26,6 +28,10 @@ export default async function Admins() {
                     <CardContainer key={a._id}>
                         <h3 className="text-xl my-2">{a.username}</h3>
                         <p className="my-2">{a.email}</p>
+                        <div className="flex justify-between items-center">
+                            <Button type={"button"}>Edit <FontAwesomeIcon icon={faEdit} style={{ marginLeft: "12px", height: "16px" }} /></Button>
+                            <button className="bg-red-600 text-white font-bold py-2 px-4 hover:bg-red-300 hover:text-red-600 flex items-center">Delete <FontAwesomeIcon icon={faTrash} style={{ marginLeft: "12px", height: "16px" }} /></button>
+                        </div>
                     </CardContainer>
                 ))}
             </section>
