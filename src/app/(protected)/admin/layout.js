@@ -1,5 +1,5 @@
 import Sidebar from "@/app/_components/Sidebar"
-import { faHouseChimneyUser, faHouseCircleCheck, faHouseCircleExclamation, faUser, faUserEdit, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faHomeAlt, faHouseChimneyUser, faHouseCircleCheck, faHouseCircleExclamation, faUser, faUserEdit, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata = {
     title: 'Nyumbani Admin Dashboard',
@@ -7,6 +7,11 @@ export const metadata = {
 }
 
 const links = [
+    {
+        link: "/admin",
+        desc: "Dashboard",
+        icon: faHome
+    },
     {
         link: "/admin/property/unverified",
         desc: "Unverified Properties",

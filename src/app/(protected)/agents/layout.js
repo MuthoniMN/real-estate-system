@@ -3,7 +3,7 @@ import { faHome, faHouseChimneyUser, faHouseCircleCheck, faHouseLock, faUserEdit
 
 const links = [
     {
-        link: "/agents/dashboard",
+        link: "/agents",
         desc: "Dashboard",
         icon: faHome
     },
