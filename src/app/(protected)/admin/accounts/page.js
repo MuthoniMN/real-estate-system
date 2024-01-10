@@ -12,7 +12,6 @@ async function getAllAdmins() {
 
 export default async function Admins() {
     const res = await getAllAdmins()
-    console.log(res)
 
     return (
         <section className="p-4">

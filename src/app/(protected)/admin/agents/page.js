@@ -12,7 +12,6 @@ async function getAllAgents() {
 
 export default async function Agents() {
     const res = await getAllAgents()
-    console.log(res)
 
     return (
         <section className="p-4">
