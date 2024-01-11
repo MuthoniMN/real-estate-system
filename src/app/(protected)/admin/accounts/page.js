@@ -20,7 +20,11 @@ export default async function Admins() {
                         <h3 className="text-xl my-2">{a.username}</h3>
                         <p className="my-2">{a.email}</p>
                         <div className="flex justify-between items-center">
-                            <Button type={"button"}>Edit <FontAwesomeIcon icon={faEdit} style={{ marginLeft: "12px", height: "16px" }} /></Button>
+                            <Button type={"button"}>
+                                <Link href={`/admin/accounts/update/${a._id}`} className="flex items-center justify-between w-full">
+                                    Edit <FontAwesomeIcon icon={faEdit} style={{ marginLeft: "12px", height: "16px" }} />
+                                </Link>
+                            </Button>
                             <button className="bg-red-600 text-white font-bold py-2 px-4 hover:bg-red-300 hover:text-red-600 flex items-center">Delete <FontAwesomeIcon icon={faTrash} style={{ marginLeft: "12px", height: "16px" }} /></button>
                         </div>
                     </CardContainer>
