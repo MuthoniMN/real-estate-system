@@ -3,12 +3,28 @@ import GoogleProvider from "next-auth/providers/google";
 import { connectToDB } from "@/app/utils/db";
 import User from "@/models/user";
 import Credentials from "next-auth/providers/credentials";
+import getUser from "@/app/lib/getUser";
 
 const handler = await NextAuth({
     providers: [
         GoogleProvider({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
             clientId: process.env.GOOGLE_CLIENT_ID,
+
+            async profile(profile) {
+                await connectToDB();
+
+                const details = {
+                    email: profile.email,
+                    username: profile.name,
+                    role: "client"
+                }
+
+                let user = getUser(details.email)
+                if (!user) User.create(details)
+
+                return details
+            }
         }),
         Credentials({
             name: "credentials",
