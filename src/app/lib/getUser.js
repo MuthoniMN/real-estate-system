@@ -7,3 +7,16 @@ export default async function getUser(email) {
 
     return data.json()
 }
+
+export async function getUserByID(id) {
+    try {
+        const data = await fetch(`http://localhost:3000/api/accounts/${id}`)
+        let result = await data.json()
+        return result
+
+    } catch (error) {
+        console.error(error)
+        throw new Error('Failed to fetch data')
+    }
+
+}
