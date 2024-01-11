@@ -1,7 +1,6 @@
 "use client"
-import Image from "next/image"
 import Link from "next/link"
-import { signIn, signOut, useSession, getProviders } from "next-auth/react"
+import { signIn, signOut, useSession, getSession } from "next-auth/react"
 import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
@@ -9,7 +8,8 @@ import Button from "./Button"
 import Logo from "./Logo"
 
 export default function Navbar() {
-    const isUserSignedIn = true;
+    const { data: session, status } = useSession();
+    const isUserSignedIn = status === "unauthenticated";
     const [toggleDropdown, setToggleDropdown] = useState(false)
 
     return (
