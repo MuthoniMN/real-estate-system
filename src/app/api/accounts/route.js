@@ -7,12 +7,16 @@ export async function GET(req, res) {
     const searchParams = req.nextUrl.searchParams
     const role = searchParams.get('role')
     const email = searchParams.get('email')
+    const username = searchParams.get('username')
+
     let data = []
     try {
         if (role) {
             data = await User.find({ role: role });
         } else if (email) {
             data = await User.find({ email: email });
+        } else if (username) {
+            data = await User.find({ username: username });
         } else {
             data = await User.find();
         }
