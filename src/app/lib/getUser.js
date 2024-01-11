@@ -20,3 +20,16 @@ export async function getUserByID(id) {
     }
 
 }
+
+export async function getUserByUsername(username) {
+    try {
+        const data = await fetch(`http://localhost:3000/api/accounts?username=${username}`)
+        let result = await data.json()
+        return result
+
+    } catch (error) {
+        console.error(error)
+        throw new Error('Failed to fetch data')
+    }
+
+}
