@@ -15,8 +15,9 @@ const handler = await NextAuth({
                 await connectToDB();
 
                 const details = {
+                    id: profile.sub,
                     email: profile.email,
-                    username: profile.name,
+                    username: profile.given_name.toLowerCase() + '_' + profile.family_name.toLowerCase(),
                     role: "client"
                 }
 
@@ -45,6 +46,12 @@ const handler = await NextAuth({
             }
         })
     ],
+    callbacks: {
+        session({ session, user }) {
+            session.user.role = user.role
+            return session
+        }
+    },
     pages: {
         signIn: "/signin"
     },
