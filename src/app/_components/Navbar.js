@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
-import { signIn, signOut, useSession, getSession } from "next-auth/react"
-import { useEffect, useState } from "react"
+import { signIn, signOut, useSession } from "next-auth/react"
+import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import Button from "./Button"
@@ -9,7 +9,7 @@ import Logo from "./Logo"
 
 export default function Navbar() {
     const { data: session, status } = useSession();
-    const isUserSignedIn = status === "unauthenticated";
+    const isUserSignedIn = status === "authenticated";
     const [toggleDropdown, setToggleDropdown] = useState(false)
 
     return (
@@ -26,8 +26,8 @@ export default function Navbar() {
                     <Link href={"/properties/rent"} className="hover:font-bold">For Rent</Link>
                 </li>
                 <li>
-                    {!isUserSignedIn && <Button type={"button"} onClick={() => signIn()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Sign In</Button>}
-                    {isUserSignedIn && <Button type={"button"} onClick={() => signOut()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Log Out</Button>}
+                    {!isUserSignedIn && <Button func={() => signIn()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Sign In</Button>}
+                    {isUserSignedIn && <Button func={() => signOut()} className="py-2 px-4 transition-all hover:bg-theme-color hover:text-white border-2 border-theme-color text-theme-color">Log Out</Button>}
                 </li>
             </ul>
             {isUserSignedIn && <Link href={"/properties/add"} className="bg-theme-color hover:bg-theme-color/85 py-2 px-4 transition-all hover:rounded-2xl sm:block hidden">Add a Listing</Link>}
