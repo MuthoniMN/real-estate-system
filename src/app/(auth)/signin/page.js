@@ -21,7 +21,6 @@ export default function Signin() {
 
         try {
             let res = await signIn("credentials", { ...details, redirect: false })
-            console.log(res.json());
             if (res.error) {
                 setErr("Invalid Credentials")
                 setSuccess("")
