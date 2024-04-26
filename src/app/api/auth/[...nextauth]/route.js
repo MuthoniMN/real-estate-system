@@ -47,16 +47,21 @@ const handler = await NextAuth({
         })
     ],
     callbacks: {
-        session({ session, user }) {
-            session.user.role = user.role
+        jwt: async ({ token, user }) => {
+            if (user) {
+                token.role = user.role
+            }
+
+            return token
+        },
+        session: async ({ session, token }) => {
+            session.user.role = token.role
             return session
         }
+
     },
     pages: {
         signIn: "/signin"
-    },
-    session: {
-        strategy: "jwt"
     }
 
 })
