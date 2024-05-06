@@ -2,6 +2,7 @@ import { signOut } from "next-auth/react";
 import IconLink from "./IconLink";
 import Button from "@/app/_components/Button"
 import Logo from "./Logo";
+import { redirect } from "next/navigation";
 
 export default function Sidebar({ content }) {
     return (
@@ -10,7 +11,7 @@ export default function Sidebar({ content }) {
             {content.map((link, index) => {
                 return <IconLink link={link.link} linkDesc={link.desc} icon={link.icon} key={index} />
             })}
-            <Button onClick={() => signOut()}>Log Out</Button>
+            <Button func={() => { signOut(); redirect('/') }}>Log Out</Button>
         </nav>
     )
 }
