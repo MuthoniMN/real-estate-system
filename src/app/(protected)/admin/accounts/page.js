@@ -6,7 +6,13 @@ import Link from "next/link";
 import getAllAdmins from "@/app/lib/getAllAdmins";
 
 export default async function Admins() {
-    const res = await getAllAdmins()
+    const res = getAllAdmins();
+    let data = [];
+    res.then(response => {
+        data = response.results
+    }).catch(err => {
+        console.error(err);
+    })
 
     return (
         <section className="p-4">
@@ -15,7 +21,7 @@ export default async function Admins() {
                 <Link href={"/admin/accounts/create"} className="text-white">Create a New Admin Account</Link>
             </Button>
             <section className="flex flex-wrap gap-4 my-4">
-                {res && res.results.map(a => (
+                {data && data.map(a => (
                     <CardContainer key={a._id}>
                         <h3 className="text-xl my-2">{a.username}</h3>
                         <p className="my-2">{a.email}</p>
