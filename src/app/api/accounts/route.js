@@ -23,7 +23,7 @@ export async function GET(req, res) {
         return NextResponse.json({ total: data.length, results: data })
     } catch (error) {
         console.error(error)
-        return NextResponse.json({ message: "Failed to fetch agents" })
+        return NextResponse.json({ message: "Failed to fetch agents" }, { status: 500 })
     }
 
 }
