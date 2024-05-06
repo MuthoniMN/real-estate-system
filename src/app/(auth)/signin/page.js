@@ -3,7 +3,7 @@ import Button from "@/app/_components/Button";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faExclamationTriangle } from "@fortawesome/free-solid-svg-icons"
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -15,6 +15,7 @@ export default function Signin() {
     const [err, setErr] = useState("")
     const [success, setSuccess] = useState("")
     const router = useRouter()
+    const { data: session } = useSession();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -28,7 +29,14 @@ export default function Signin() {
             } else {
                 setErr("")
                 setSuccess("Successfully logged in")
-                router.replace("/admin")
+
+                if (session.user.role === 'admin') {
+                    router.replace("/admin")
+                } else if (session.user.role === 'agent') {
+                    router.replace("/agent")
+                } else if (session.user.role === 'client') {
+                    router.replace("/client")
+                }
             }
         } catch (error) {
             console.error(error)
