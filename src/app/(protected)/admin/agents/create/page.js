@@ -22,7 +22,7 @@ export default function CreateAgent() {
         }
         let user = getUser(details.email)
 
-        if (user.total !== 0) {
+        if (user.total > 0) {
             setErr("Email already exists!")
             return;
         } else {
