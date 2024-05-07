@@ -1,4 +1,4 @@
-import mongoose, { Schema, model } from "mongoose";
+import mongoose, { Schema, model, models } from "mongoose";
 
 const PropertySchema = new Schema({
     title: {
@@ -8,6 +8,15 @@ const PropertySchema = new Schema({
     desc: {
         type: String,
         required: true
+    },
+    type: {
+        type: String,
+        required: [true, 'Is this for sale or a rental?'],
+        enum: { values: ['Sale', 'Rent'], message: '{VALUE} is not supported' }
+    },
+    price: {
+        type: Number,
+        required: [true, "Please include a price for your property"]
     },
     location: {
         type: String,
@@ -36,5 +45,5 @@ const PropertySchema = new Schema({
     }]
 }, { timestamps: true })
 
-const Property = model('Property', PropertySchema)
-module.exports = Property
+const Property = models.Property || model('Property', PropertySchema)
+export default Property
