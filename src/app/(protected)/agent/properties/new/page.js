@@ -3,7 +3,7 @@ import AddHouseForm from "@/app/_components/AddHouseForm";
 import AddLandForm from "@/app/_components/AddLandForm";
 import Location from "@/app/_components/Location";
 import Button from "@/app/_components/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import getUser from "@/app/lib/getUser";
 
@@ -13,16 +13,14 @@ const AddProperty = async () => {
     const [property, setProperty] = useState({});
     const [land, setLand] = useState({});
 
-    const { data: session, status } = useSession();
-    console.log(session);
-
-    const user = await getUser(session.user.email);
-    console.log(user)
-
+    useEffect(() => {
+        const { data: session, status } = useSession();
+        const user = await getUser(session.user.email);
+    }, [])
     if(type === "House" ){
-        property.agent = user.results[0]._id
+        setProperty({...property, agent: user.results[0]._id})
     }else if(type === "Land" ){
-        property.agent = user.results[0]._id
+        setLand({...land, agent: user.results[0]._id})
     }
 
     return (
