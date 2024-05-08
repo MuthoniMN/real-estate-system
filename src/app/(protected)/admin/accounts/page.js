@@ -3,17 +3,12 @@ import CardContainer from "@/app/_components/CardContainer";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import getAllAdmins from "@/app/lib/getAllAdmins";
+import { connectToDB } from "@/app/utils/db";
+import User from "@/models/user";
 
 export default async function Admins() {
-    const res = await getAllAdmins();
-    let data = [];
-    res.then(response => {
-        data = response.results
-    }).catch(err => {
-        console.error(err);
-    })
-
+    await connectToDB();
+    const res = await User.find({ role: "admin" });
     return (
         <section className="p-4">
             <h2 className="text-3xl font-bold">Our Admins</h2>
@@ -21,7 +16,7 @@ export default async function Admins() {
                 <Link href={"/admin/accounts/create"} className="text-white">Create a New Admin Account</Link>
             </Button>
             <section className="flex flex-wrap gap-4 my-4">
-                {data && data.map(a => (
+                {res && res.map(a => (
                     <CardContainer key={a._id}>
                         <h3 className="text-xl my-2">{a.username}</h3>
                         <p className="my-2">{a.email}</p>

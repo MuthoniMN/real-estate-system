@@ -3,10 +3,12 @@ import Button from "@/app/_components/Button";
 import CardContainer from "@/app/_components/CardContainer";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import getAllAgents from "@/app/lib/getAllAgents";
+import { connectToDB } from "@/app/utils/db";
+import User from "@/models/user";
 
 export default async function Agents() {
-    const res = await getAllAgents()
+    await connectToDB();
+    const res = await User.find({ role: "admin" });
 
     return (
         <section className="p-4">
