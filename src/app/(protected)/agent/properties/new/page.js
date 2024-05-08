@@ -14,8 +14,11 @@ const AddProperty = async () => {
     const [land, setLand] = useState({});
 
     useEffect(() => {
-        const { data: session, status } = useSession();
-        const user = await getUser(session.user.email);
+        const getUserDetails = async () => {
+            const { data: session } = useSession();
+            const user = await getUser(session.user.email);
+        }
+        getUserDetails()
     }, [])
     if(type === "House" ){
         setProperty({...property, agent: user.results[0]._id})
