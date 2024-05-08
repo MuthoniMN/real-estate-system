@@ -1,5 +1,5 @@
 export default async function getUser(email) {
-    const data = await fetch(`https://real-estate-system.vercel.app/api/accounts?email=${email}`)
+    const data = await fetch(`/api/accounts?email=${email}`)
 
     if (!data.ok) {
         throw new Error('Failed to fetch data')
@@ -10,7 +10,7 @@ export default async function getUser(email) {
 
 export async function getUserByID(id) {
     try {
-        const data = await fetch(`https://real-estate-system.vercel.app/api/accounts/${id}`)
+        const data = await fetch(`/api/accounts/${id}`)
         let result = await data.json()
         return result
 
@@ -23,7 +23,7 @@ export async function getUserByID(id) {
 
 export async function getUserByUsername(username) {
     try {
-        const data = await fetch(`https://real-estate-system.vercel.app/api/accounts?username=${username}`)
+        const data = await fetch(`/api/accounts?username=${username}`)
         let result = await data.json()
         return result
 

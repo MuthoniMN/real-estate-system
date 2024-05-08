@@ -6,7 +6,7 @@ import Link from "next/link";
 import getAllAdmins from "@/app/lib/getAllAdmins";
 
 export default async function Admins() {
-    const res = getAllAdmins();
+    const res = await getAllAdmins();
     let data = [];
     res.then(response => {
         data = response.results

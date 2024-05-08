@@ -1,6 +1,5 @@
 export default async function getAllAgents() {
-    const data = await fetch(`https://real-estate-system.vercel.app/api/accounts?role=agent`)
-    console.log(data);
+    const data = await fetch(`/api/accounts?role=agent`)
     let result = await data.json()
 
     if (!data.ok) {
