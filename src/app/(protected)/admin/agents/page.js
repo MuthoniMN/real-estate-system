@@ -8,7 +8,7 @@ import User from "@/models/user";
 
 export default async function Agents() {
     await connectToDB();
-    const res = await User.find({ role: "admin" });
+    const res = await User.find({ role: "agent" });
 
     return (
         <section className="p-4">
@@ -17,7 +17,7 @@ export default async function Agents() {
                 <Link href={"/admin/agents/create"} className="text-white">Create a New Agent Account</Link>
             </Button>
             <section className="flex flex-wrap gap-4 my-4">
-                {res && res.results.map(a => (
+                {res && res.map(a => (
                     <CardContainer key={a._id}>
                         <h3 className="text-xl my-2">{a.username}</h3>
                         <p className="my-2">{a.email}</p>
