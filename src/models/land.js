@@ -39,7 +39,11 @@ const LandSchema = new Schema({
             type: String,
             required: true
         }
-    }]
+    }],
+    approved: {
+        type: Boolean,
+        default: false
+    }
 }, { timestamps: true })
 
 const Land = models.Land || model('Land', LandSchema);

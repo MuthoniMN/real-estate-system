@@ -42,7 +42,11 @@ const PropertySchema = new Schema({
             type: String,
             required: true
         }
-    }]
+    }],
+    approved: {
+        type: Boolean,
+        default: false
+    }
 }, { timestamps: true })
 
 const Property = models.Property || model('Property', PropertySchema)
