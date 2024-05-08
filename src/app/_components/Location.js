@@ -12,7 +12,7 @@ export default function Location({ property, setProperty }) {
             loading: () => <p>A map is loading</p>,
             ssr: false
         }
-    ), [])
+    ), [position])
 
     return (
         <div className="flex justify-between w-[100%] h-[60vh] items-start">
