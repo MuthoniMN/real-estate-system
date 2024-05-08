@@ -1,4 +1,13 @@
+import Button from "./Button";
+
 export default function AddHouseForm({ property, setProperty }) {
+    const upload = (e) => {
+        if (e.target.files) {
+            const _files = Array.from(e.target.files);
+            setProperty({...property, pictures: _files});
+          }
+    }
+
     return (
         <section className="w-[75%]">
             <h2 className="text-2xl my-4 font-semibold">Add a New Property: House</h2>
@@ -40,8 +49,9 @@ export default function AddHouseForm({ property, setProperty }) {
                 </div>
                 <div>
                     <label htmlFor="pictures">Pictures: </label>
-                    <input type="file" multiple id="pictures" value={property.pictures} onChange={(e) => setProperty({ ...property, pictures: e.target.value })} className="px-4 py-2" />
+                    <input type="file" multiple id="pictures" value={property.pictures} onChange={upload} className="px-4 py-2 file:bg-theme-color file:px-4 file:py-2 file:transition-all hover:file:rounded-2xl hover:file:bg-theme-color/85" />
                 </div>
+                <Button type="submit">Add Property</Button>
             </form>
         </section>
     )
