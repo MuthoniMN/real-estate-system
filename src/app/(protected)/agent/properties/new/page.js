@@ -24,7 +24,7 @@ const AddProperty = () => {
                 </div>
                 <Button func={() => setTab(1)}>Next</Button>
             </section>}
-            {tab === 1 && <section className="border-2 rounded-3xl px-8 pt-6 pb-4 w-[75%] text-center">
+            {tab === 1 && <section className="border-2 rounded-3xl px-8 pt-6 pb-4 w-[90%] text-center">
                 <h2 className="text-2xl my-4 font-semibold">Add a New Property: {type}</h2>
                 <Location property={type === "House" ? property : land} setProperty={type === "House" ? setProperty : setLand} />
                 <div className="flex justify-between w-[100%]">
