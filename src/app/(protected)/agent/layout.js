@@ -1,38 +1,38 @@
 "use client"
 
 import Sidebar from "@/app/_components/Sidebar";
-import { faHome, faHouseChimneyUser, faHouseMedicalCircleCheck, faHouseCircleXmark, faHouseCircleCheck, faHouseLock, faUserEdit, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faHouseChimneyUser, faHouseCircleXmark, faHouseCircleCheck, faUserEdit, faUserCircle, faHouseMedical } from "@fortawesome/free-solid-svg-icons";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 
 const links = [
     {
-        link: "/agents",
+        link: "/agent",
         desc: "Dashboard",
         icon: faHome
     },
     {
-        link: "/agents/properties/new",
+        link: "/agent/properties/new",
         desc: "Add Property",
-        icon: faHouseMedicalCircleCheck
+        icon: faHouseMedical
     },
     {
-        link: "/agents/properties/approved",
+        link: "/agent/properties/approved",
         desc: "Approved Properties",
         icon: faHouseCircleCheck
     },
     {
-        link: "/agents/properties/unapproved",
+        link: "/agent/properties/unapproved",
         desc: "Unapproved Properties",
         icon: faHouseCircleXmark
     },
     {
-        link: "/agents/properties/manage",
+        link: "/agent/properties/manage",
         desc: "Manage Properties",
         icon: faHouseChimneyUser
     },
     {
-        link: "/agents/profile",
+        link: "/agent/profile",
         desc: "Profile",
         icon: faUserCircle
     },
@@ -52,7 +52,7 @@ export default function AgentLayout({ children }) {
     })
 
     if (!session) {
-        redirect('/signin?callbackUrl=/admin')
+        redirect('/signin?callbackUrl=/agent')
     } else if (session.user.role !== 'agent') {
         redirect('/unauthorized')
     }
