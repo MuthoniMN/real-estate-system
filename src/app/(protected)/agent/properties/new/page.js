@@ -3,7 +3,8 @@ import AddHouseForm from "@/app/_components/AddHouseForm";
 import AddLandForm from "@/app/_components/AddLandForm";
 import Location from "@/app/_components/Location";
 import Button from "@/app/_components/Button";
-import { useState } from "react"
+import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 const AddProperty = () => {
     const [tab, setTab] = useState(0);
@@ -11,6 +12,8 @@ const AddProperty = () => {
     const [property, setProperty] = useState({});
     const [land, setLand] = useState({});
 
+    const { data: session, status } = useSession();
+    console.log(session);
     return (
         <main className="flex justify-center items-center h-[100vh]">
             {tab === 0 && <section className="border-2 px-8 pt-6 pb-4 w-[50%] text-center">
