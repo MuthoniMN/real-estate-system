@@ -17,14 +17,15 @@ const AddProperty = () => {
     useEffect(() => {
         const getUserDetails = async () => {
             const user = await getUser(session.user.email);
+
+            if (type === "House") {
+                setProperty({ ...property, agent: user.results[0]._id })
+            } else if (type === "Land") {
+                setLand({ ...land, agent: user.results[0]._id })
+            }
         }
         getUserDetails()
-    }, [])
-    if(type === "House" ){
-        setProperty({...property, agent: user.results[0]._id})
-    }else if(type === "Land" ){
-        setLand({...land, agent: user.results[0]._id})
-    }
+    }, [type])
 
     return (
         <main className="flex justify-center items-center h-[100vh]">
