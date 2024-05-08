@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function ImagePreview({ images }){
     return (
-        <div>
+        <div className="grid grid-cols-12 gap-2 my-2" >
             {
                 images.map(img => {
                     const src = URL.createObjectURL(img);
