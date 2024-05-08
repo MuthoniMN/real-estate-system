@@ -16,7 +16,7 @@ export default function Location({ property, setProperty }) {
 
     return (
         <div className="flex justify-between w-[100%] h-[60vh] items-start">
-            <div className="mw-[300px]">
+            <div className="min-w-[300px]">
                 <LocationSearch pos={position} setPos={setPosition} property={property} setProperty={setProperty} />
             </div>
             <div className="h-[100%] w-[100%]">
