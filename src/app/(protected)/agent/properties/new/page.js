@@ -12,10 +12,10 @@ const AddProperty = async () => {
     const [type, setType] = useState("");
     const [property, setProperty] = useState({});
     const [land, setLand] = useState({});
+    const { data: session } = useSession();
 
     useEffect(() => {
         const getUserDetails = async () => {
-            const { data: session } = useSession();
             const user = await getUser(session.user.email);
         }
         getUserDetails()
