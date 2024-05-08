@@ -20,11 +20,11 @@ export default function LocationSearch({ pos, setPos, property, setProperty }) {
                 <Button type={"submit"}><FontAwesomeIcon icon={faMagnifyingGlass} className="text-3xl" /></Button>
             </form>
             <div>
-                <ul className="flex flex-col">
+                <ul className="flex flex-col divide-y-2 divide-amber-400">
                     {
                         results.map(res => (
-                            <li className="divide-y-2 divide-amber-400" onClick={setPos([res.lat, res.lon])} key={res.osm_id}>
-                                <FontAwesomeIcon icon={faMapPin} />{res.display_name}
+                            <li className="px-4 py-2 w-[100%] flex justify-between" onClick={setPos([res.lat, res.lon])} key={res.osm_id}>
+                                <FontAwesomeIcon icon={faMapPin} style={{color: "#E8AE00"}} />{res.display_name}
                             </li>
                         ))
                     }
