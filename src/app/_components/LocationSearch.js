@@ -23,7 +23,7 @@ export default function LocationSearch({ pos, setPos, property, setProperty }) {
                 <ul className="flex flex-col divide-y-2 divide-amber-400">
                     {
                         results.map(res => (
-                            <li className="px-4 py-2 w-[100%] flex justify-between" onClick={setPos([res.lat, res.lon])} key={res.osm_id}>
+                            <li className="px-4 py-2 w-[100%] flex justify-between cursor-pointer" onClick={setPos([res.lat, res.lon])} key={res.osm_id}>
                                 <FontAwesomeIcon icon={faMapPin} style={{color: "#E8AE00"}} />{res.display_name}
                             </li>
                         ))
