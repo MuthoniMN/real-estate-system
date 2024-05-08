@@ -20,6 +20,7 @@ export async function GET(req, res) {
         } else {
             data = await User.find();
         }
+        console.log({ total: data.length, results: data });
         return NextResponse.json({ total: data.length, results: data })
     } catch (error) {
         console.error(error)
