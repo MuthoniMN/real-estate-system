@@ -1,6 +1,6 @@
 "use client"
 import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import LocationSearch from "./LocationSearch";
 
 export default function Location({ property, setProperty }) {
@@ -17,7 +17,7 @@ export default function Location({ property, setProperty }) {
     return (
         <div className="flex justify-between w-[100%] h-[60vh] items-start">
             <div className="w-[50%]">
-                <LocationSearch pos={position} setPos={setPosition} property={property} setProperty={setProperty} />
+                <LocationSearch setPos={setPosition} property={property} setProperty={setProperty} />
             </div>
             <div className="h-[100%] w-[50%]">
                 <Map position={position} />
