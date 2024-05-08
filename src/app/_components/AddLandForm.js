@@ -1,5 +1,5 @@
 import Button from "./Button";
-import ImagePreview from "@/_components/ImagePreview"
+import ImagePreview from "./ImagePreview"
 
 export default function AddLandForm({ land, setLand }) {
     const upload = (e) => {
