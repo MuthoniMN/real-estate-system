@@ -1,6 +1,7 @@
 export default async function getAllAdmins() {
     try {
         const data = await fetch('https://real-estate-system.vercel.app/api/accounts?role=admin')
+        console.log(data);
 
         let result = await data.json()
         return result;
