@@ -5,8 +5,9 @@ import Location from "@/app/_components/Location";
 import Button from "@/app/_components/Button";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import getUser from "@/app/lib/getUser";
 
-const AddProperty = () => {
+const AddProperty = async () => {
     const [tab, setTab] = useState(0);
     const [type, setType] = useState("");
     const [property, setProperty] = useState({});
@@ -14,6 +15,9 @@ const AddProperty = () => {
 
     const { data: session, status } = useSession();
     console.log(session);
+
+    const user = await getUser(session.user.email);
+    console.log(user)
     return (
         <main className="flex justify-center items-center h-[100vh]">
             {tab === 0 && <section className="border-2 px-8 pt-6 pb-4 w-[50%] text-center">
