@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import getUser from "@/app/lib/getUser";
 
-const AddProperty = async () => {
+const AddProperty = () => {
     const [tab, setTab] = useState(0);
     const [type, setType] = useState("");
     const [property, setProperty] = useState({});
