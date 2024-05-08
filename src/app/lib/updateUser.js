@@ -1,5 +1,5 @@
 export async function updateUser(id, updates) {
-    const data = await fetch(`http://localhost:3000/api/accounts/${id}`, {
+    const data = await fetch(`https://real-estate-system.vercel.app/api/accounts/${id}`, {
         method: "PUT",
         body: JSON.stringify({
             ...updates
