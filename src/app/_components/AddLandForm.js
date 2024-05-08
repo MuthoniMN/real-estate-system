@@ -45,7 +45,7 @@ export default function AddLandForm({ land, setLand }) {
                 </div>
                 <div>
                     <label htmlFor="pictures">Pictures: </label>
-                    <input type="file" multiple id="pictures" value={land.pictures} onChange={upload} className="px-4 py-2 file:bg-theme-color file:px-4 file:py-2 file:transition-all hover:file:rounded-2xl hover:file:bg-theme-color/85" />
+                    <input type="file" multiple id="pictures" value={land.pictures} onChange={(e) => upload(e)} className="px-4 py-2 file:bg-theme-color file:px-4 file:py-2 file:transition-all hover:file:rounded-2xl hover:file:bg-theme-color/85" />
                 </div>
                 <ImagePreview images={land.pictures} />
                 <Button type="submit">Add Property</Button>
