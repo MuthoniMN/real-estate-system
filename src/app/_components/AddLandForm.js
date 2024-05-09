@@ -3,6 +3,7 @@ import { useState } from "react";
 import { notEmpty } from "../utils/validate";
 import Button from "./Button";
 import ImagePreview from "./ImagePreview"
+import createListing from "../createLandListing";
 
 export default function AddLandForm({ land, setLand }) {
     const [success, setSuccess] = useState("")
@@ -22,11 +23,19 @@ export default function AddLandForm({ land, setLand }) {
         if(!notEmpty([land.title, land.desc, land.location, land.agent, land.price, land.type, land.dimensions, land.area, land.pictures])){
             setError("Please fill all the fields!")
         }
+
+        let createResults = await createListing(land)
+
+        if(createResults.status == "error"){
+            setError(createResults.message)
+        }else{
+            setSuccess(createResults.message)
+        }
     }
     return (
-        <section className="w-[75%] scroll-auto">
+        <section className="w-[75%] scroll">
             <h2 className="text-2xl my-4 font-semibold">Add a New Property: Land</h2>
-            <form className="w-[100%] flex flex-col gap-4 scroll" onSubmit={(e) => handleSubmit(e)} >
+            <form className="w-[100%] flex flex-col gap-4" onSubmit={(e) => handleSubmit(e)} >
                 {success && <p className="bg-green-100 text-green-500">{success}</p>}
                 {error && <p className="bg-red-300 text-red-600">{error}</p>}
                 <div>
