@@ -1,3 +1,4 @@
+"use server"
 import Land from "@/models/land";
 
 export default async function createListing(land){
