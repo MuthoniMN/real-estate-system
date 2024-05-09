@@ -34,7 +34,7 @@ const PropertySchema = new Schema({
         type: Number
     },
     agent: {
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
