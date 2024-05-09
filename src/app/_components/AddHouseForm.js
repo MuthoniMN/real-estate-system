@@ -51,7 +51,8 @@ export default function AddHouseForm({ property, setProperty }) {
                 </div>
                 <div>
                     <label htmlFor="pictures">Pictures: </label>
-                    <input type="file" multiple id="pictures" onChange={(e) => upload(e)} className="px-4 py-2 file:bg-theme-color file:px-4 file:py-2 file:transition-all hover:file:rounded-2xl hover:file:bg-theme-color/85" />
+                    <input type="file" multiple id="pictures" accept="image/*" aria-describedby="file_input_help" onChange={(e) => upload(e)} className="px-4 py-2 file:bg-theme-color file:px-4 file:py-2 file:transition-all hover:file:rounded-2xl hover:file:bg-theme-color/85" />
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                 </div>
                 { property.pictures && <ImagePreview images={property.pictures} />}
                 <Button type="submit">Add Property</Button>
