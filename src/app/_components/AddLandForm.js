@@ -3,8 +3,10 @@ import ImagePreview from "./ImagePreview"
 
 export default function AddLandForm({ land, setLand }) {
     const upload = (e) => {
+        console.log(e.target.files);
         if (e.target.files) {
             const _files = Array.from(e.target.files);
+            console.log(_files);
             setLand({...land, pictures: _files});
           }
     }
