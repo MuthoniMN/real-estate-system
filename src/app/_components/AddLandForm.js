@@ -24,9 +24,9 @@ export default function AddLandForm({ land, setLand }) {
         }
     }
     return (
-        <section className="w-[75%]">
+        <section className="w-[75%] scroll-auto">
             <h2 className="text-2xl my-4 font-semibold">Add a New Property: Land</h2>
-            <form className="w-[100%] flex flex-col gap-4 scroll-auto" onSubmit={(e) => handleSubmit(e)} >
+            <form className="w-[100%] flex flex-col gap-4 scroll" onSubmit={(e) => handleSubmit(e)} >
                 {success && <p className="bg-green-100 text-green-500">{success}</p>}
                 {error && <p className="bg-red-300 text-red-600">{error}</p>}
                 <div>
