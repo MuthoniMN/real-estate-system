@@ -32,6 +32,7 @@ const LandSchema = new Schema({
     },
     agent: {
         type: mongoose.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     pictures: [{
