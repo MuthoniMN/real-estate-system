@@ -52,7 +52,7 @@ export default function AddHouseForm({ property, setProperty }) {
                     <label htmlFor="pictures">Pictures: </label>
                     <input type="file" multiple id="pictures" value={property.pictures} onChange={(e) => upload(e)} className="px-4 py-2 file:bg-theme-color file:px-4 file:py-2 file:transition-all hover:file:rounded-2xl hover:file:bg-theme-color/85" />
                 </div>
-                <ImagePreview images={property.pictures} />
+                { property.pictures && <ImagePreview images={property.pictures} />}
                 <Button type="submit">Add Property</Button>
             </form>
         </section>
