@@ -5,14 +5,16 @@ import ImagePreview from "./ImagePreview";
 
 export default function AddHouseForm({ property, setProperty }) {
     const [pictures, setPictures] = useState([])
-    let reader = new FileReader();
     const upload = (e) => {
         if (e.target.files) {
             const _files = Array.from(e.target.files);
             setProperty({...property, pictures: _files});
             _files.forEach(img => {
-                const src = reader.readAsDataURL(img) 
-                setPictures([...pictures, { src: src, title: img.name }])
+                let reader = new FileReader();
+                reader.onLoad(() => {
+                    setPictures([...pictures, { src: reader.result, title: img.name }])
+                })
+                reader.readAsDataURL(img) 
             });
             console.log(property.pictures, pictures);
           }
