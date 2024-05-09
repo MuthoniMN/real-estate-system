@@ -1,22 +1,12 @@
-"use client"
-import { useState } from "react";
 import Button from "./Button";
 import ImagePreview from "./ImagePreview";
 
 export default function AddHouseForm({ property, setProperty }) {
-    const [pictures, setPictures] = useState([])
     const upload = (e) => {
         if (e.target.files) {
             const _files = Array.from(e.target.files);
             setProperty({...property, pictures: _files});
-            _files.forEach(img => {
-                let reader = new FileReader();
-                reader.onload = () => {
-                    setPictures([...pictures, { src: reader.result, title: img.name }])
-                }
-                reader.readAsDataURL(img) 
-            });
-            console.log(property.pictures, pictures);
+            console.log(property);
           }
     }
 
@@ -63,7 +53,7 @@ export default function AddHouseForm({ property, setProperty }) {
                     <label htmlFor="pictures">Pictures: </label>
                     <input type="file" multiple id="pictures" onChange={(e) => upload(e)} className="px-4 py-2 file:bg-theme-color file:px-4 file:py-2 file:transition-all hover:file:rounded-2xl hover:file:bg-theme-color/85" />
                 </div>
-                { property.pictures && <ImagePreview images={pictures} />}
+                { property.pictures && <ImagePreview images={property.pictures} />}
                 <Button type="submit">Add Property</Button>
             </form>
         </section>
