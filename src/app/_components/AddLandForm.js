@@ -36,7 +36,7 @@ export default function AddLandForm({ land, setLand }) {
                 <div>
                     <label htmlFor="desc">Description: </label>
                     <textarea id="desc" value={land.desc} aria-describedby="description_help" onChange={(e) => setLand({ ...land, desc: e.target.value })} className="border-2 border-yellow-300 px-4 py-2 w-[100%]"></textarea>
-                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="description_help">{250 - (property.desc.length || 0)} characters remaining</p>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="description_help">{250 - (property.desc ? property.desc.length : 0)} characters remaining</p>
                 </div>
                 <div className="flex justify-between items-center">
                     <div>
