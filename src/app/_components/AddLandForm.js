@@ -6,15 +6,13 @@ import ImagePreview from "./ImagePreview"
 export default function AddLandForm({ land, setLand }) {
     const [pictures, setPictures] = useState([])
     const upload = (e) => {
-        const arr = []
         if (e.target.files) {
             const _files = Array.from(e.target.files);
             _files.forEach(img => {
                 const src = URL.createObjectURL(img) 
-                arr.push({ src: src, title: img.name })
+                setPictures([...pictures, { src: src, title: img.name }])
             });
             setLand({...land, pictures: _files})
-            setPictures(arr)
             console.log(land.pictures, pictures);
           }
     }

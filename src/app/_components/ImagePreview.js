@@ -1,6 +1,7 @@
 import Image from "next/image" 
 
 export default function ImagePreview({ images }){
+  console.log("loaded");
     return (
         <div className="grid grid-cols-12 gap-2 my-2" >
             {
