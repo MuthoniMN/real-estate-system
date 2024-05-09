@@ -28,7 +28,7 @@ const AddProperty = () => {
     }, [type])
 
     return (
-        <main className="flex justify-center items-center h-[100vh]">
+        <main className="flex justify-center items-center h-[100vh] scroll">
             {tab === 0 && <section className="border-2 px-8 pt-6 pb-4 w-[50%] text-center">
                 <h2 className="text-2xl my-4 font-semibold">Add a New Property</h2>
                 <div>
