@@ -11,9 +11,9 @@ export default function AddLandForm({ land, setLand }) {
             setLand({...land, pictures: _files})
             _files.forEach(img => {
                 let reader = new FileReader();
-                reader.onLoad(() => {
+                reader.onload = () => {
                     setPictures([...pictures, { src: reader.result, title: img.name }])
-                })
+                }
                 reader.readAsDataURL(img)
             });
             console.log(land.pictures, pictures);

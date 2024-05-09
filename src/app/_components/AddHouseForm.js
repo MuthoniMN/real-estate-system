@@ -11,9 +11,9 @@ export default function AddHouseForm({ property, setProperty }) {
             setProperty({...property, pictures: _files});
             _files.forEach(img => {
                 let reader = new FileReader();
-                reader.onLoad(() => {
+                reader.onload = () => {
                     setPictures([...pictures, { src: reader.result, title: img.name }])
-                })
+                }
                 reader.readAsDataURL(img) 
             });
             console.log(property.pictures, pictures);
