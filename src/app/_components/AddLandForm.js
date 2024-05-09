@@ -5,14 +5,15 @@ import ImagePreview from "./ImagePreview"
 
 export default function AddLandForm({ land, setLand }) {
     const [pictures, setPictures] = useState([])
+    let reader = new FileReader();
     const upload = (e) => {
         if (e.target.files) {
             const _files = Array.from(e.target.files);
+            setLand({...land, pictures: _files})
             _files.forEach(img => {
-                const src = URL.createObjectURL(img) 
+                const src = reader.readAsDataURL(img) 
                 setPictures([...pictures, { src: src, title: img.name }])
             });
-            setLand({...land, pictures: _files})
             console.log(land.pictures, pictures);
           }
     }
