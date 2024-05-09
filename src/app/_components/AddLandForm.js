@@ -1,19 +1,21 @@
+"use client"
+import { useState } from "react";
 import Button from "./Button";
 import ImagePreview from "./ImagePreview"
 
 export default function AddLandForm({ land, setLand }) {
+    const [pictures, setPictures] = useState([])
     const upload = (e) => {
         const arr = []
-        console.log(e.target.files);
         if (e.target.files) {
             const _files = Array.from(e.target.files);
-            console.log(_files);
             _files.forEach(img => {
                 const src = URL.createObjectURL(img) 
                 arr.push({ src: src, title: img.name })
             });
             setLand({...land, pictures: _files})
-            console.log(_files, arr);
+            setPictures(arr)
+            console.log(land.pictures, pictures);
           }
     }
     return (
@@ -55,7 +57,7 @@ export default function AddLandForm({ land, setLand }) {
                     <label htmlFor="pictures">Pictures: </label>
                     <input type="file" multiple id="pictures" value={land.pictures} onChange={(e) => upload(e)} className="px-4 py-2 file:bg-theme-color file:px-4 file:py-2 file:transition-all hover:file:rounded-2xl hover:file:bg-theme-color/85" />
                 </div>
-                { land.pictures && <ImagePreview images={land.pictures} />}
+                { land.pictures && <ImagePreview images={pictures} />}
                 <Button type="submit">Add Property</Button>
             </form>
         </section>

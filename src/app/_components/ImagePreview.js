@@ -6,8 +6,8 @@ export default function ImagePreview({ images }){
             {
                 images.map(img => {
                     return (
-                      <div className="relative aspect-video col-span-4" key={img.name}>
-                        <Image src={img.src} alt={img.name} className="rounded-lg" width="150" height="150" />
+                      <div className="col-span-4" key={img.name}>
+                        <Image src={img.src} alt={img.name} className="rounded-lg" width={150} height={150} />
                       </div>
                     );
                   })
