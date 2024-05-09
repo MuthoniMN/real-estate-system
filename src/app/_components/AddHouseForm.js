@@ -2,10 +2,17 @@ import Button from "./Button";
 import ImagePreview from "./ImagePreview";
 
 export default function AddHouseForm({ property, setProperty }) {
-    const upload = (e) => {
+    const upload = (e) => {const arr = []
+        console.log(e.target.files);
         if (e.target.files) {
             const _files = Array.from(e.target.files);
+            console.log(_files);
+            _files.forEach(img => {
+                const src = URL.createObjectURL(img) 
+                arr.push({ src: src, title: img.name })
+            });
             setProperty({...property, pictures: _files});
+            console.log(_files, arr);
           }
     }
 
