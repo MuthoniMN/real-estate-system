@@ -24,7 +24,7 @@ export default function AddLandForm({ land, setLand }) {
             setError("Please fill all the fields!")
         }
 
-        let createResults = await createListing(land)
+        let createResults = await createListing({...land})
 
         if(createResults.status == "error"){
             setError(createResults.message)
