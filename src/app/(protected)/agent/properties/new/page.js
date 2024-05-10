@@ -3,29 +3,12 @@ import AddHouseForm from "@/app/_components/AddHouseForm";
 import AddLandForm from "@/app/_components/AddLandForm";
 import Location from "@/app/_components/Location";
 import Button from "@/app/_components/Button";
-import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
-import getUser from "@/app/lib/getUser";
+import { useState } from "react";
 
 const AddProperty = () => {
     const [tab, setTab] = useState(0);
     const [type, setType] = useState("");
-    const [property, setProperty] = useState({});
-    const [land, setLand] = useState({});
-    const { data: session } = useSession();
-
-    useEffect(() => {
-        const getUserDetails = async () => {
-            const user = await getUser(session.user.email);
-
-            if (type === "House") {
-                setProperty({ ...property, agent: user.results[0]._id })
-            } else if (type === "Land") {
-                setLand({ ...land, agent: user.results[0]._id })
-            }
-        }
-        getUserDetails()
-    }, [type])
+    const [location, setLocation] = useState("");
 
     return (
         <main className="flex justify-center items-center h-[100vh] scroll">
@@ -42,14 +25,14 @@ const AddProperty = () => {
             </section>}
             {tab === 1 && <section className="border-2 rounded-3xl px-8 pt-6 pb-4 w-[90%] text-center">
                 <h2 className="text-2xl my-4 font-semibold">Add a New Property: {type}</h2>
-                <Location property={type === "House" ? property : land} setProperty={type === "House" ? setProperty : setLand} />
+                <Location location={location} setLocation={setLocation} />
                 <div className="flex justify-between w-[100%]">
                     <Button func={() => setTab(0)}>Back</Button>
-                    <Button func={() => setTab(2)} disabled={type === "House" ? !property.location : !land.location} >Next</Button>
+                    <Button func={() => setTab(2)} disabled={!location} >Next</Button>
                 </div>
             </section>}
-            {tab === 2 && type === "House" && <AddHouseForm property={property} setProperty={setProperty} />}
-            {tab === 2 && type === "Land" && <AddLandForm land={land} setLand={setLand} />}
+            {tab === 2 && type === "House" && <AddHouseForm location={location} />}
+            {tab === 2 && type === "Land" && <AddLandForm location={location} />}
 
         </main>
     )
