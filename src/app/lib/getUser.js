@@ -33,3 +33,9 @@ export async function getUserByUsername(username) {
     }
 
 }
+
+export const getUserDetails = async (email) => {
+    const user = await getUser(email);
+
+    return user.results[0]._id 
+}
