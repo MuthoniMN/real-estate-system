@@ -5,7 +5,7 @@ import User from "@/models/user";
 import Credentials from "next-auth/providers/credentials";
 import getUser from "@/app/lib/getUser";
 
-const handler = await NextAuth({
+export const authOptions = {
     providers: [
         GoogleProvider({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -66,6 +66,8 @@ const handler = await NextAuth({
         signIn: "/signin"
     }
 
-})
+}
+
+const handler = await NextAuth(authOptions)
 
 export { handler as GET, handler as POST }
