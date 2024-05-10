@@ -10,9 +10,9 @@ export const metadata = {
     description: 'A real estate company website where they showcase their properties and manage properties and agents',
   }
 
-export default function Profile(){
-    const session = getServerSession(authOptions)
-    const user = getUserByID(session.user.id)
+export default async function Profile(){
+    const session = await getServerSession(authOptions)
+    const user = await getUserByID(session.user.id)
     return (
         <section className="border-2 w-[3/4] py-4 px-8 relative">
             <Image src={user.profilePicture} alt={user.username} width={250} height={250} className="w-[250px] h-[250px] rounded-full"  />

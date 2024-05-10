@@ -2,7 +2,7 @@
 import AddHouseForm from "@/app/_components/AddHouseForm";
 import AddLandForm from "@/app/_components/AddLandForm";
 import { useEffect } from "react";
-import { getProperty } from "@app/lib/properties"
+import { getProperty } from "@/app/lib/properties"
 
 const EditProperty = ({ params }) => {
     const id = params.id;
