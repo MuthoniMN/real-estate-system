@@ -47,6 +47,18 @@ const PropertySchema = new Schema({
     approved: {
         type: Boolean,
         default: false
+    },
+    published: {
+        type: Boolean,
+        default: false
+    },
+    fulfilled: {
+        type: Boolean,
+        default: false
+    },
+    views: {
+        type: Number,
+        default: 0
     }
 }, { timestamps: true })
 
