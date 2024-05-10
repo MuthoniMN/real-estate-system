@@ -22,8 +22,8 @@ export default function ImageCarousel({ images, small=false, desc }){
             <div className={`flex justify-center items-center gap-4 w-full h-full overflow-hidden transition ease-in-out duration-400`} style={{
                 transition: `translateX(-${current * 100}%)`
             }} >
-                {images.map(img => (
-                    <Image src={img.imageUrl} alt={desc} width={200} height={200} />
+                {images.map((img, i) => (
+                    <Image src={img.imageUrl} alt={desc} key={i} width={200} height={200} />
                 ))}
             </div>
             <div className="absolute top-0 flex justify-between items-center w-full h-full text-lg text-white">

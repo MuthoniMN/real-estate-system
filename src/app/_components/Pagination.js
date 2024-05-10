@@ -19,7 +19,7 @@ export default function Pagination({ total, max, current, setCurrent }){
                 <FontAwesomeIcon icon={faChevronLeft} />
             </p>
             {pages.map(a => 
-                <p className={`w-24 h-24 ${(current + 1) && 'bg-theme-color font-bold'}`} onClick={setCurrent(a - 1)}>
+                <p className={`w-24 h-24 ${(current + 1) && 'bg-theme-color font-bold'}`} key={a} onClick={setCurrent(a - 1)}>
                     {a}
                 </p>
             )}
