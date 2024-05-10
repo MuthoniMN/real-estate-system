@@ -1,25 +1,50 @@
-import { faBath, faBed } from "@fortawesome/free-solid-svg-icons"
+import { faBath, faBed, faRuler } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Image from "next/image"
 import Link from "next/link"
 import Button from "./Button"
 
-export default function Property({ img, title, location, price, beds, baths, id }) {
+export default function Property({ property, user = false }) {
     return (
         <div className="p-4 shadow-sm hover:shadow-lg md:w-1/5">
-            <Image src={img} alt={title} width={120} height={120} className="mx-auto" />
-            <h3 className="text-xl font-bold text-theme-color text-center my-2">{title}</h3>
+            <ImageCarousel images={property.images} desc={property.title} />
+            <h3 className="text-xl font-bold text-theme-color text-center my-2">{property.title}</h3>
+            <p className="italic">{property.location}</p>
+            <p>
+                <span className="bg-gray-300 px-2" >KSH</span>
+                {property.price}
+            </p>
             <div className="flex justify-between my-2">
-                <p className="italic">{location}</p>
-                <p>{price}</p>
+                <p className="flex h-[18px]">
+                    <span className="bg-gray-300 px-2" >
+                        <FontAwesomeIcon icon={faBed} style={{ fontSize: "8px" }} />
+                    </span>
+                    {property.beds}
+                </p>
+                <p className="flex h-[18px]">
+                    <span className="bg-gray-300 px-2" >
+                        <FontAwesomeIcon icon={faBath} style={{ fontSize: "8px" }} />
+                    </span>
+                    {property.baths}</p>
+                <p className="flex h-[18px]">
+                    <span className="bg-gray-300 px-2" >
+                        <FontAwesomeIcon icon={faRuler} style={{ fontSize: "8px" }} />
+                    </span>
+                    {property.area}</p>
             </div>
-            <div className="flex justify-between my-2">
-                <p className="flex gap-2 h-[18px]"><FontAwesomeIcon icon={faBed} style={{ fontSize: "8px" }} />{beds}</p>
-                <p className="flex gap-2 h-[18px]"><FontAwesomeIcon icon={faBath} style={{ fontSize: "8px" }} />{baths}</p>
-            </div>
-            <Button type={"button"}>
-                <Link href={"/properties/" + id}>View Property</Link>
-            </Button>
+            {user ?
+                <div className="flex justify-between">
+                    <Button type={"button"}>
+                        <Link href={"/agent/properties/edit" + id}>Edit</Link>
+                    </Button>
+                    <Button type={"button"}>
+                        <Link href={"/agent/properties/edit" + id}>Delete</Link>
+                    </Button>
+                </div>
+                :
+                <Button type={"button"}>
+                    <Link href={"/properties/" + id}>View Property</Link>
+                </Button>
+            }
         </div>
     )
 }
