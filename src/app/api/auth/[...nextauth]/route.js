@@ -50,12 +50,14 @@ const handler = await NextAuth({
         jwt: async ({ token, user }) => {
             if (user) {
                 token.role = user.role
+                token._id = user._id
             }
 
             return token
         },
         session: async ({ session, token }) => {
             session.user.role = token.role
+            session.user.id = token._id
             return session
         }
 
