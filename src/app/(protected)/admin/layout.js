@@ -17,17 +17,17 @@ const links = [
         icon: faHome
     },
     {
-        link: "/admin/property/unverified",
+        link: "/admin/properties/unverified",
         desc: "Unverified Properties",
         icon: faHouseCircleExclamation
     },
     {
-        link: "/admin/property/verified",
+        link: "/admin/properties/verified",
         desc: "Verified Properties",
         icon: faHouseCircleCheck
     },
     {
-        link: "/admin/property/rentals",
+        link: "/admin/properties/rentals",
         desc: "Rental Properties",
         icon: faHouseChimneyUser
     },
