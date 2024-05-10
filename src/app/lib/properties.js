@@ -2,7 +2,7 @@ import { connectToDB } from "../utils/db";
 import Land from "@/models/land";
 import Property from "@/models/property"
 
-export const getProperty = ( id ) => {
+export const getProperty = async ( id ) => {
     try{
         await connectToDB();
         let property = await Land.find({_id: id })
