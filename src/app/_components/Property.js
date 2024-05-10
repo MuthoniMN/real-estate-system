@@ -2,6 +2,7 @@ import { faBath, faBed, faRuler } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/link"
 import Button from "./Button"
+import ImageCarousel from "./ImageCarousel"
 
 export default function Property({ property, user = false }) {
     return (

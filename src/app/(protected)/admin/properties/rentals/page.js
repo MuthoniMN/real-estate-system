@@ -1,4 +1,5 @@
-import { getRentals } from "@/app/lib/properties"
+import { getRentals } from "@/app/lib/properties";
+import PropertiesSection from "@/app/_components/PropertiesSection";
 
 export default async function RentalProperties() {
     const properties = await getRentals();
