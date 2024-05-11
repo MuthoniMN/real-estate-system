@@ -12,10 +12,10 @@ export default async function getUser(email) {
     return data.json()
 }
 
-export async function getUserByID(id) {
+export async function getUserByID(userId) {
     try {
         await connectToDB();
-        const id = new mongoose.Types.ObjectId(params.id)
+        const id = new mongoose.Types.ObjectId(userId)
         const user = await User.findById(id)
         return user
 
