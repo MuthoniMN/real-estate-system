@@ -12,7 +12,7 @@ export default function PropertiesSection( { title, properties, max } ){
     const page = properties.splice(start, end)
     return (
         <section>
-            <h2>{title}</h2>
+            <h2 className='text-3xl font-bold' >{title}</h2>
             <div className='flex justify-between items-center w-full h-full'>
                 { page && page.map(property => <Property property={property} small key={property._id} />)}
                 {properties === [] && (<p>No Properties Yet...</p>) }
