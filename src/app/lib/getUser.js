@@ -1,3 +1,7 @@
+import mongoose from "mongoose"
+import {connectToDB} from "@/utils/db"
+import User from "@/models/user"
+
 export default async function getUser(email) {
     const data = await fetch(`/api/accounts?email=${email}`)
 
@@ -10,9 +14,10 @@ export default async function getUser(email) {
 
 export async function getUserByID(id) {
     try {
-        const data = await fetch(`/api/accounts/${id}`)
-        let result = await data.json()
-        return result
+        await connectToDB();
+        const id = new mongoose.Types.ObjectId(params.id)
+        const user = await User.findById(id)
+        return user
 
     } catch (error) {
         console.error(error)
