@@ -23,8 +23,8 @@ export default function Pagination({ total, max, current, setCurrent }){
                     {a}
                 </p>
             )}
-            <p>
-                <FontAwesomeIcon icon={faChevronLeft} onClick={ () => next() } />
+            <p className="w-24 h-24">
+                <FontAwesomeIcon icon={faChevronRight} onClick={ () => next() } />
             </p>
         </div>
     )
