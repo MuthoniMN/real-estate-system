@@ -16,7 +16,7 @@ export default function PropertiesSection( { title, properties, max } ){
             <h2 className='text-3xl font-bold' >{title}</h2>
             <div className='flex justify-between items-center w-full h-[100%]'>
                 { page && page.map(property => <Property property={property} small key={property._id} />)}
-                {properties.length === 0 && (<p>No Properties Yet...</p>) }
+                {properties.length === 0 && (<p className="w-full text-center" >No Properties Yet...</p>) }
             </div>
             {properties.length > 0 && <Pagination total={properties.title} max={max} current={currentPage} setCurrent={setCurrentPage} />}
         </section>
