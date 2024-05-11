@@ -8,16 +8,17 @@ export default function PropertiesSection( { title, properties, max } ){
     const [currentPage, setCurrentPage] = useState(1);
     const end = currentPage * max
     const start = end - max
+    let page
 
-    const page = properties.splice(start, end)
+    if(properties.length > 0 ) page = properties.splice(start, end)
     return (
-        <section>
+        <section className='w-full h-full'>
             <h2 className='text-3xl font-bold' >{title}</h2>
             <div className='flex justify-between items-center w-full h-full'>
                 { page && page.map(property => <Property property={property} small key={property._id} />)}
-                {properties === [] && (<p>No Properties Yet...</p>) }
+                {properties.length === 0 && (<p>No Properties Yet...</p>) }
             </div>
-            {properties && <Pagination total={properties.title} max={max} current={currentPage} setCurrent={setCurrentPage} />}
+            {properties.length > 0 && <Pagination total={properties.title} max={max} current={currentPage} setCurrent={setCurrentPage} />}
         </section>
     )
 }
