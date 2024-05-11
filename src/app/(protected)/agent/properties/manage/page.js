@@ -7,7 +7,7 @@ export default async function RentalProperties() {
     const session = await getServerSession(authOptions);
     const rentals = await getRentals(session.user.id);
     return (
-        <main className="flex felx-col gap-8">
+        <main className="flex felx-col gap-8 h-[100vh]">
             <PropertiesSection title="Rental Properties" max={6} properties={rentals} />
         </main>
     )
