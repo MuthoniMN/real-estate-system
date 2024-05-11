@@ -14,7 +14,7 @@ export default function Pagination({ total, max, current, setCurrent }){
         else setCurrent(current + 1);
     }
     return (
-        <div className="flex justify-end items-center w-full divide-x-2 divide-gray-500 text-lg">
+        <div className="flex justify-end items-center w-full divide-x-2 divide-gray-500 text-lg border-2 border-black">
             <p className="w-24 h-24" onClick={() => previous() } >
                 <FontAwesomeIcon icon={faChevronLeft} />
             </p>
