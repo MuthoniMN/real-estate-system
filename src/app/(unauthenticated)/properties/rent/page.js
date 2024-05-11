@@ -9,7 +9,6 @@ export default function Sale() {
                 <p>Find a property that is on sale</p>
             </section>
             <SearchBar />
-            <PropertySection />
         </main>
     )
 }
