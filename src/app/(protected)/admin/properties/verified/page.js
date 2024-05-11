@@ -6,7 +6,7 @@ export default async function ApprovedProperties() {
     const lands = await getApprovedLands();
 
     return (
-        <main className="flex flex-col gap-8 h-[100vh]">
+        <main className="flex flex-col gap-2 ps-8 h-[100vh]">
             <section className="w-full h-1/2">
                 <PropertiesSection title="Houses and Apartments" max={3} properties={houses} />
             </section>
