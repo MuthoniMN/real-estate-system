@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import {connectToDB} from "@/utils/db"
+import {connectToDB} from "@/app/utils/db"
 import User from "@/models/user"
 
 export default async function getUser(email) {
