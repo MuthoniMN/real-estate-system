@@ -59,7 +59,7 @@ export default function AgentLayout({ children }) {
     return (
         <main className="flex gap-4" style={{ height: "100vh" }}>
             <Sidebar content={links} />
-            <section className="clear ms-[32%] lg:ms-[20%] w-full h-full">
+            <section className="w-full h-full">
                 {children}
             </section>
         </main>
