@@ -18,22 +18,20 @@ const LandSchema = new Schema({
         type: Number,
         required: [true, "Please include a price for your property"]
     },
-    location: [
-        {
-            title: {
-                type: String,
-                required: true
-            },
-            long: {
-                type: String,
-                required: true
-            },
-            lat: {
-                type: String,
-                required: true
-            }
+    location: {
+        title: {
+            type: String,
+            required: true
+        },
+        long: {
+            type: String,
+            required: true
+        },
+        lat: {
+            type: String,
+            required: true
         }
-    ],
+    },
     dimensions: {
         type: String,
         required: true

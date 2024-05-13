@@ -14,8 +14,18 @@ const RentalsSchema = new Schema({
         required: [true, "Please include a price for your property"]
     },
     location: {
-        type: String,
-        required: true
+        title: {
+            type: String,
+            required: true
+        },
+        long: {
+            type: String,
+            required: true
+        },
+        lat: {
+            type: String,
+            required: true
+        }
     },
     beds: {
         type: Number,
