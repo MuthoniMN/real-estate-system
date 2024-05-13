@@ -8,7 +8,7 @@ import { useState } from "react";
 const AddProperty = () => {
     const [tab, setTab] = useState(0);
     const [type, setType] = useState("");
-    const [location, setLocation] = useState("");
+    const [location, setLocation] = useState({});
 
     return (
         <main className="flex justify-center items-center h-[100vh] scroll">
