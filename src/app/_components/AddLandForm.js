@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 export default function AddLandForm({ location, land, action }) {
     const [success, setSuccess] = useState("")
     const [error, setError] = useState("")
-    const [pictures, setPictures] = useState([]);
+    const [pictures, setPictures] = useState([] ||  land.pictures);
     const [agent, setAgent] = useState("");
     const { data: session } = useSession()
 
@@ -26,18 +26,17 @@ export default function AddLandForm({ location, land, action }) {
     const upload = (e) => {
         if (e.target.files) {
             const _files = Array.from(e.target.files);
-            setPictures( _files)
+            setPictures([..._files])
           }
     }
 
+    const createAction = action.bind(null, agent, location)
     return (
         <section className="w-[75%] scroll">
             <h2 className="text-2xl my-4 font-semibold">Add a New Property: Land</h2>
-            <form action={action} className="w-[100%] flex flex-col gap-4" >
+            <form action={createAction} className="w-[100%] flex flex-col gap-4" >
                 {success && <p className="bg-green-100 text-green-500">{success}</p>}
                 {error && <p className="bg-red-300 text-red-600">{error}</p>}
-                <input type="hidden" name="agent" value={agent} />
-                <input type="hidden" name="location" value={location || land.location} />
                 <div>
                     <label htmlFor="title">Title: </label>
                     <input type="text" id="title" name="title" value={land.title || ""} className="border-2 border-yellow-300 px-4 py-2 w-[100%]" />
