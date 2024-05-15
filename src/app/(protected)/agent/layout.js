@@ -57,7 +57,7 @@ export default function AgentLayout({ children }) {
         redirect('/unauthorized')
     }
     return (
-        <main className="flex gap-4" style={{ height: "100vh" }}>
+        <main className="flex" style={{ height: "100vh" }}>
             <Sidebar content={links} />
             <section className="w-full h-full">
                 {children}
