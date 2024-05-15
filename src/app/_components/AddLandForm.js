@@ -5,7 +5,7 @@ import ImagePreview from "./ImagePreview"
 import { getUserDetails } from "../lib/getUser";
 import { useSession } from "next-auth/react";
 
-export default function AddLandForm({ location, land, action }) {
+export default function AddLandForm({ location, land=null, action }) {
     const [success, setSuccess] = useState("")
     const [error, setError] = useState("")
     const [pictures, setPictures] = useState([] ||  land.pictures);

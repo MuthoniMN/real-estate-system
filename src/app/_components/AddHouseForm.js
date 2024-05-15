@@ -5,11 +5,11 @@ import ImagePreview from "./ImagePreview";
 import { getUserDetails } from "../lib/getUser";
 import { useSession } from "next-auth/react";
 
-export default function AddHouseForm({ property, location, action }) {
+export default function AddHouseForm({ property=null, location, action }) {
     const [success, setSuccess] = useState("")
     const [error, setError] = useState("")
     const [agent, setAgent] = useState("")
-    const [pictures, setPictures] = useState([] ||  land.pictures)
+    const [pictures, setPictures] = useState([] ||  property.pictures)
     const { data: session } = useSession()
 
     useEffect(() => {
