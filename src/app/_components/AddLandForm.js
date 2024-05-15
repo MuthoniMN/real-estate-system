@@ -26,7 +26,7 @@ export default function AddLandForm({ location, land=null, action }) {
     const upload = (e) => {
         if (e.target.files) {
             const _files = Array.from(e.target.files);
-            setPictures([...pictures, _files])
+            setPictures([...pictures, ..._files])
           }
     }
 
