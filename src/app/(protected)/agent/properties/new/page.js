@@ -33,8 +33,8 @@ const AddProperty = () => {
                     <Button func={() => setTab(2)} disabled={!location} >Next</Button>
                 </div>
             </section>}
-            {tab === 2 && type === "House" && <AddHouseForm location={location} action={createPropertyListing} />}
-            {tab === 2 && type === "Land" && <AddLandForm location={location} action={createListing} />}
+            // {tab === 2 && type === "House" && <AddHouseForm location={location} action={createPropertyListing} />}
+            // {tab === 2 && type === "Land" && <AddLandForm location={location} action={createListing} />}
 
         </main>
     )
