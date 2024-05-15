@@ -4,6 +4,8 @@ import AddLandForm from "@/app/_components/AddLandForm";
 import Location from "@/app/_components/Location";
 import Button from "@/app/_components/Button";
 import { useState } from "react";
+import createListing from "@/app/lib/landActions";
+import createPropertyListing from "@/app/lib/propertyActions";
 
 const AddProperty = () => {
     const [tab, setTab] = useState(0);
@@ -31,8 +33,8 @@ const AddProperty = () => {
                     <Button func={() => setTab(2)} disabled={!location} >Next</Button>
                 </div>
             </section>}
-            {tab === 2 && type === "House" && <AddHouseForm location={location} />}
-            {tab === 2 && type === "Land" && <AddLandForm location={location} />}
+            {tab === 2 && type === "House" && <AddHouseForm location={location} action={createPropertyListing} />}
+            {tab === 2 && type === "Land" && <AddLandForm location={location} action={createListing} />}
 
         </main>
     )

@@ -4,7 +4,7 @@ import { connectToDB } from "../utils/db";
 import { propertySchema } from '@/app/_schemas/property'
 import { uploadImages } from "./imageUpload";
 
-export default async function createListing(agent, location, property){
+export default async function createPropertyListing(agent, location, property){
     const propertyObj = Object.fromEntries(property)
 
     //validate fields
