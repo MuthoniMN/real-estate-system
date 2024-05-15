@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 export default function AddLandForm({ location, land=null, action }) {
     const [success, setSuccess] = useState("")
     const [error, setError] = useState("")
-    const [pictures, setPictures] = useState([] ||  land.pictures);
+    const [pictures, setPictures] = useState([]);
     const [agent, setAgent] = useState("");
     const { data: session } = useSession()
 
@@ -26,7 +26,7 @@ export default function AddLandForm({ location, land=null, action }) {
     const upload = (e) => {
         if (e.target.files) {
             const _files = Array.from(e.target.files);
-            setPictures([...pictures, ..._files])
+            setPictures([..._files])
           }
     }
 
@@ -39,33 +39,33 @@ export default function AddLandForm({ location, land=null, action }) {
                 {error && <p className="bg-red-300 text-red-600">{error}</p>}
                 <div>
                     <label htmlFor="title">Title: </label>
-                    <input type="text" id="title" name="title" value={land.title || ""} className="border-2 border-yellow-300 px-4 py-2 w-[100%]" />
+                    <input type="text" id="title" name="title" value={land ? land.title : ""} className="border-2 border-yellow-300 px-4 py-2 w-[100%]" />
                 </div>
                 <div>
                     <label htmlFor="desc">Description: </label>
-                    <textarea id="desc" name="desc" value={land.desc || ""} className="border-2 border-yellow-300 px-4 py-2 w-[100%]"></textarea>
+                    <textarea id="desc" name="desc" value={land ? land.desc : ""} className="border-2 border-yellow-300 px-4 py-2 w-[100%]"></textarea>
                 </div>
                 <div className="flex justify-between items-center">
                     <div>
                         <label htmlFor="type">Type: </label>
-                        <select id="type" name="type" value={land.type || ""} className="border-2 border-yellow-300 px-4 py-2 w-28">
+                        <select id="type" name="type" value={land ? land.type : ""} className="border-2 border-yellow-300 px-4 py-2 w-28">
                             <option value="Lease">Lease</option>
                             <option value="Sale">Sale</option>
                         </select>
                     </div>
                     <div>
                         <label htmlFor="price">Price: </label>
-                        <input type="number" id="price" name="price" value={land.price || 0} className="border-2 border-yellow-300 px-4 py-2" />
+                        <input type="number" id="price" name="price" value={land ? land.price : 0} className="border-2 border-yellow-300 px-4 py-2" />
                     </div>
                 </div>
                 <div className="flex justify-between items-center w-[100%]">
                     <div>
                         <label htmlFor="dimensions">Dimensions: </label>
-                        <input type="text" id="dimensions" name="dimensions" value={land.dimensions || 0} placeholder="50 * 100" className="border-2 border-yellow-300 px-4 py-2 block" />
+                        <input type="text" id="dimensions" name="dimensions" value={land ? land.dimensions : 0} placeholder="50 * 100" className="border-2 border-yellow-300 px-4 py-2 block" />
                     </div>
                     <div>
                         <label htmlFor="area">Area: </label>
-                        <input type="number" id="area" name="area" value={land.area || 0} className="border-2 border-yellow-300 px-4 py-2 w-24 block" />
+                        <input type="number" id="area" name="area" value={land ? land.area : 0} className="border-2 border-yellow-300 px-4 py-2 w-24 block" />
                     </div>
                 </div>
                 <div>
